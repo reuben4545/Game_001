@@ -30,9 +30,39 @@ game.PlayerEntity = me.ObjectEntity.extend({
         this.maxHealth = 10;
 
         this.minHealth = 0;
+
  
         // set the display to follow our position on both axis
         me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
+    },
+
+    fire: function(){
+
+        //console.log("FIRE!");
+
+        //###########
+        criminals = me.game.world.getChildByName("Criminal");
+
+
+        for(var i = 0; i < criminals.length; i++){
+
+            // Use pythag to check if the enemy is closer than 96 units
+            if(Math.sqrt(Math.abs(Math.pow(this.pos.x - criminals[i].pos.x, 2)) + Math.abs(Math.pow(this.pos.y - criminals[i].pos.y, 2))) < 96){
+
+                //console.log("criminal " + i + " is nearby!!!!!");
+
+                // call hit function in criminal class
+
+                criminals[i].hit(1);
+
+            }
+
+        }
+        //##########
+
+
+
+
     },
  
     /* -----
@@ -41,6 +71,10 @@ game.PlayerEntity = me.ObjectEntity.extend({
  
     ------ */
     update: function(dt) {
+
+        
+
+        //console.log(this.pos.x);
 
         // check & update player movement
         // Must go before me.game.world.collide(this)!
@@ -91,6 +125,12 @@ game.PlayerEntity = me.ObjectEntity.extend({
                 this.vel.y = 0;
             }
 
+            if(me.input.isKeyPressed("fire")){
+                //console.log("Hello there, it appears the fire key was pressed!");
+
+                this.fire();
+            }
+
             if(me.input.isKeyPressed("shift")){
 
                 //DEBUG! REMOVE!
@@ -100,7 +140,7 @@ game.PlayerEntity = me.ObjectEntity.extend({
             }else{
 
                 this.setVelocity(5, 5);
-                
+
             }
         }
  
