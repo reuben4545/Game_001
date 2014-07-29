@@ -64,6 +64,23 @@ game.PlayerEntity = me.ObjectEntity.extend({
 
 
     },
+
+    hit: function(damage){
+
+        this.health -= damage;
+
+        if(this.health <= this.minHealth){
+          console.log("player deaded");
+          //dead!
+
+          me.game.world.removeChild(this);
+
+          me.game.world.addChild(this, 3);
+
+
+
+        }
+    },
  
     /* -----
  

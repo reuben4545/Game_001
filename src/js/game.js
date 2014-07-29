@@ -11,9 +11,12 @@ var game = {
      
     // Run on page load.
     "onload" : function () {
+
+        game.width = window.innerWidth;
+        game.height = window.innerHeight;
  
         // Initialize the video.
-        if (!me.video.init("screen", window.innerWidth, window.innerHeight, true, 'auto')) {
+        if (!me.video.init("screen", game.width, game.height, true, 'auto')) {
             alert("Your browser does not support HTML5 canvas.");
             return;
         }
