@@ -73,6 +73,6 @@ game.HUD.ScoreItem = me.Renderable.extend( {
         percent = me.game.world.getChildByName("player")[0].health / me.game.world.getChildByName("player")[0].maxHealth;
 
         context.fillStyle = 'red';
-        context.fillRect((game.width / 2) - (500 / 2), (game.height / 1.2) - (30 / 2), 500 * percent, 30);
+        context.fillRect((game.width / 7) - (500 / 2), (game.height / 1.02) - (30 / 2), 500 * percent, 30);
     }
 });
