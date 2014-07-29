@@ -64,11 +64,15 @@ game.Criminal = me.ObjectEntity.extend({
 
       //this.renderable.setAnimationFrame();
 
-      this.renderable.setCurrentAnimation("debug_die", (function () {
-        console.log("Debug!");
-        me.game.world.removeChild(this);
-        //return true; // do not reset to first frame
-      }).bind(this));
+      if (!this.renderable.isCurrentAnimation("debug_die")) {
+
+        console.log("not debug_dieing")
+        // do something funny...
+        var _this = this;
+        this.renderable.setCurrentAnimation("debug_die", function () {
+          me.game.world.removeChild(_this);
+        });
+      }
 
 
       //me.game.world.removeChild(this);
