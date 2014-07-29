@@ -43,7 +43,20 @@ game.Criminal = me.ObjectEntity.extend({
     if(this.health <= 0){
       console.log("deaded");
       //dead!
-      this.destroy();
+      //this.destroy();
+
+
+      //me.game.world.removeChild(this);
+
+      me.game.world.addChild(this, 3);
+
+      //me.game.update();
+
+
+
+
+
+
     }else{
       console.log("HIT!");
     }

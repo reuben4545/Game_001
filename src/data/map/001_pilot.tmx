@@ -24,13 +24,6 @@
     <property name="spritewidth" value="63"/>
    </properties>
   </object>
-  <object name="Criminal" x="1535" y="2349" width="64" height="64">
-   <properties>
-    <property name="image" value="npc_red_invader"/>
-    <property name="spriteheight" value="47"/>
-    <property name="spritewidth" value="63"/>
-   </properties>
-  </object>
  </objectgroup>
  <objectgroup name="Player" width="40" height="40">
   <object name="mainPlayer" x="2295" y="2229" width="64" height="64">
