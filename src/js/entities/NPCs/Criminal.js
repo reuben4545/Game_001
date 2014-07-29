@@ -74,8 +74,10 @@ game.Criminal = me.ObjectEntity.extend({
         // do something funny...
         var _this = this;
         this.renderable.setCurrentAnimation("debug_die", function () {
+          console.log("Finished!");
           me.game.world.removeChild(_this);
         });
+        me.game.world.removeChild(_this);
       }
 
 
