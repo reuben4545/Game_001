@@ -2,6 +2,7 @@
 game.Criminal = me.ObjectEntity.extend({
 	"init": function(x, y, settings) {
 
+
   	console.log("Criminal init called"); // called
 
   	this.parent(x, y, settings);
@@ -15,6 +16,8 @@ game.Criminal = me.ObjectEntity.extend({
     this.canHit = true;
 
     this.renderable.addAnimation("debug_die", [ 0, 1, 2, 3, 4], 200);
+
+    //this.renderable.setCurrentAnimation("debug_die");
 
 
     //this.renderable.setCurrentAnimation("debug_die");
@@ -38,6 +41,7 @@ game.Criminal = me.ObjectEntity.extend({
       }
 
     }else{
+      console.log("Can Print!");
       this.canHit = true;
     }
 
@@ -74,10 +78,6 @@ game.Criminal = me.ObjectEntity.extend({
         });
       }
 
-
-      //me.game.world.removeChild(this);
-
-      //me.game.world.addChild(this, 3);
 
 
 
