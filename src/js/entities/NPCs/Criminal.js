@@ -12,19 +12,34 @@ game.Criminal = me.ObjectEntity.extend({
 
   	this.collidable = true;
 
+    this.canHit = true;
+
+    this.renderable.addAnimation("debug_die", [ 0, 1, 2, 3, 4], 200);
+
+
+    //this.renderable.setCurrentAnimation("debug_die");
+
   },
 
   update: function(dt) {
 
     console.log("dun");
 
-    game.player = me.game.world.getChildByName("player")[0];
+    player = me.game.world.getChildByName("player")[0];
 
-    var player_pos = game.player.pos;
 
-    //me.game.getEntityByName("player")
+    // Use pythag to check if the enemy is closer than 96 units
+    if(Math.sqrt(Math.abs(Math.pow(this.pos.x - player.pos.x, 2)) + Math.abs(Math.pow(this.pos.y - player.pos.y, 2))) < 96){
 
-    //console.log("HEY THERE, game.PlayerEntity.pos.x is: " + Math.pow(Math.abs(player_pos.x - this.pos.x), 2));
+      if(this.canHit){    
+        player.hit(1);
+
+        this.canHit = false;
+      }
+
+    }else{
+      this.canHit = true;
+    }
 
   },
 
@@ -45,15 +60,20 @@ game.Criminal = me.ObjectEntity.extend({
       //dead!
       //this.destroy();
 
+      //this.renderable.setCurrentAnimation("debug_die");
+
+      //this.renderable.setAnimationFrame();
+
+      this.renderable.setCurrentAnimation("debug_die", (function () {
+        console.log("Debug!");
+        me.game.world.removeChild(this);
+        //return true; // do not reset to first frame
+      }).bind(this));
+
 
       //me.game.world.removeChild(this);
 
-      me.game.world.addChild(this, 3);
-
-      //me.game.update();
-
-
-
+      //me.game.world.addChild(this, 3);
 
 
 

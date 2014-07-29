@@ -12,6 +12,9 @@ game.resources = [
     // main player spritesheet
     {name: "gripe_run_right",  type:"image", src: "data/img/sprite/gripe_run_right.png"},
 
+    // sprite sheets
+    {name: "debug_die",  type:"image", src: "data/img/spritesheets/debug_die.png"},
+
     // NPC textures
     {name: "npc_fred",  type:"image", src: "data/img/entity/npc/fred.png"},
     {name: "npc_red_invader",  type:"image", src: "data/img/entity/npc/red_invader.png"},
