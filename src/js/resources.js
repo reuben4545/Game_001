@@ -11,6 +11,7 @@ game.resources = [
 
     // main player spritesheet
     {name: "police_idle",  type:"image", src: "data/img/spritesheets/police_idle.png"},
+    {name: "police",  type:"image", src: "data/img/spritesheets/police.png"},
 
     // criminal spritesheet
     {name: "criminal",  type:"image", src: "data/img/spritesheets/criminal.png"},

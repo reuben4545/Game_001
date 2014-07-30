@@ -15,6 +15,9 @@ game.Criminal = me.ObjectEntity.extend({
 
     this.canHit = true;
 
+    // ptthh. Who needs gravity?
+    this.gravity = 0
+
     this.renderable.addAnimation("debug_die", [1, 2, 3, 4], 200);
 
     this.renderable.addAnimation("idle", [0], 100);
@@ -29,8 +32,8 @@ game.Criminal = me.ObjectEntity.extend({
 
     this.parent(dt);
 
+    this.updateMovement();
 
-    console.log("dun");
 
     player = me.game.world.getChildByName("player")[0];
 
@@ -45,7 +48,6 @@ game.Criminal = me.ObjectEntity.extend({
       }
 
     }else{
-      console.log("Can Print!");
       this.canHit = true;
     }
 
@@ -53,6 +55,8 @@ game.Criminal = me.ObjectEntity.extend({
   },
 
   onCollision: function(res, obj){
+
+
 
   	if (obj.type === 'player'){
   		// Do something?
@@ -73,7 +77,7 @@ game.Criminal = me.ObjectEntity.extend({
 
         console.log("not debug_dieing");
 
-        var _this = this;
+        _this = this;
         this.renderable.setCurrentAnimation("debug_die", function () {
           console.log("Finished!");
           me.game.world.removeChild(_this);
