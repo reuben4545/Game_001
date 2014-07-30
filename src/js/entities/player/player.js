@@ -38,7 +38,7 @@ game.PlayerEntity = me.ObjectEntity.extend({
         this.minStamina = 0;
         
         this.staminaRegenRate = 2;
-        this.healthRegenRate = 20;
+        this.healthRegenRate = 100;
         
         this.staminaTimer = 1;
         this.healthTimer = 1;
