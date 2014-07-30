@@ -15,11 +15,15 @@ game.CriminalSpawner = me.ObjectEntity.extend({
 
   spawn: function(){
 
-    console.log(game.crimes);
+    console.log("Look! === 1! " + game.crimes.length);
 
-    crime = game.crimes[Math.round(Math.random() * (game.crimes.length - 1))];
+    index = Math.round(Math.random() * (game.crimes.length - 1))
 
-    console.log("Crime is " + crime);
+    crime = game.crimes[index];
+
+    game.crimes.splice(game.crimes, 1);
+
+    console.log("Look! === 2! " + game.crimes.length);
 
     me.game.world.addChild(new game.crimeDictonary[crime]( 
       this.pos.x, 

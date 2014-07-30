@@ -25,27 +25,9 @@
   </object>
  </objectgroup>
  <objectgroup name="Enemies" width="40" height="40">
-  <object name="Criminal" x="1664" y="1856" width="64" height="64">
-   <properties>
-    <property name="image" value="debug_die"/>
-    <property name="spriteheight" value="64"/>
-    <property name="spritewidth" value="64"/>
-   </properties>
-  </object>
-  <object name="Criminal" x="1344" y="1856" width="64" height="64">
-   <properties>
-    <property name="image" value="debug_jie"/>
-    <property name="spriteheight" value="64"/>
-    <property name="spritewidth" value="64"/>
-   </properties>
-  </object>
-  <object name="CriminalSpawner" x="1664" y="2240" width="64" height="64">
-   <properties>
-    <property name="image" value="debug_jie"/>
-    <property name="spriteheight" value="64"/>
-    <property name="spritewidth" value="64"/>
-   </properties>
-  </object>
-  <object name="CriminalSpawner" x="1344" y="2240" width="64" height="64"/>
+  <object name="CriminalSpawner" x="1664" y="2240" width="64" height="64"/>
+  <object name="CriminalSpawner" x="1344" y="1856" width="64" height="64"/>
+  <object name="CriminalSpawner" x="1338" y="2227" width="64" height="64"/>
+  <object name="CriminalSpawner" x="1664" y="1856" width="64" height="64"/>
  </objectgroup>
 </map>

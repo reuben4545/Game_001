@@ -25,7 +25,7 @@ var game = {
         game.crimeDictonary["bicycle-theft"] = game.thief;
         game.crimeDictonary["theft-from-the-person"] = game.thief;
         game.crimeDictonary["other-theft"] = game.theif;
-        game.crimeDictonary["criminal-damage-arson"] = game.Arson;
+        game.crimeDictonary["criminal-damage-arson"] = game.arson;
 
 
         //So many. Don't they look pretty. They outline the reflection of my bloodshot eyes on my monitor flowing with cafiene. Leave me with Coffee and a computer for two days and who knows what I will do. TODO: CLEANUP
