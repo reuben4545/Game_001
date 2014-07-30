@@ -172,7 +172,10 @@ game.PlayerEntity = me.ObjectEntity.extend({
          
         // else inform the engine we did not perform
         // any update (e.g. position, animation)
-        return false;
+        //return false;
+
+        // Potential efficiency problem - redraws screen EVERY update...
+        return true;
     }
  
 });
