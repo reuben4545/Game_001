@@ -51,34 +51,33 @@ game.PlayerEntity = me.ObjectEntity.extend({
             
             player.staminaTimer++;
             player.healthTimer++;
-            
+            //regen stamina
             if(player.staminaTimer == player.staminaRegenRate) {
                 player.staminaTimer = 0;
                 player.stamina += 1;
             }
-            
+            //regen health
             if(player.healthTimer == player.healthRegenRate) {
                 player.healthTimer = 0;
                 player.health += 1;
             }
-            
+            //remove stamina while player is sprinting
             if(player.isSprinting) {
                 player.stamina -= 2;
             }
-            
+            //make health cap
             if(player.health > player.maxHealth) {
                 player.health = player.maxHealth;
             }
-            
+            //make stamina cap
             if(player.stamina > player.maxStamina) {
-                player.stamina = player. maxStamina;   
+                player.stamina = player.maxStamina;   
             }
-            
+            //make sure stamina can not go negetive
             if(player.stamina < 0) {
                 player.stamina = 0;
-                player.isSprinting = false;
             }
-            
+            //prevent player from sprinting forever
             if(player.isSprinting == true & player.stamina <= 0) {
                 player.setVelocity(5, 5);
             }
