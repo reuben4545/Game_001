@@ -3,7 +3,6 @@
  */
  
 game.HUD = game.HUD || {};
- 
   
 game.HUD.Container = me.ObjectContainer.extend({
  
@@ -70,7 +69,7 @@ game.HUD.ScoreItem = me.Renderable.extend( {
     draw : function (context) {
         
         healthPercent = me.game.world.getChildByName("player")[0].health / me.game.world.getChildByName("player")[0].maxHealth;
-        staminaPercent = me.game.world.getChildByName("player")[0].health / me.game.world.getChildByName("player")[0].maxHealth;
+        staminaPercent = me.game.world.getChildByName("player")[0].stamina / me.game.world.getChildByName("player")[0].maxStamina;
 
         context.fillStyle = 'black';
         context.fillRect((game.width / 6.70) - (500 / 2), (game.height / 1.09) - (30 / 2), 500, 100);
