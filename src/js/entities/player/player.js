@@ -35,11 +35,6 @@ game.PlayerEntity = me.ObjectEntity.extend({
         this.maxStamina = 100;
 
         this.minHealth = 0;
-		
-		//Sets player idle image
-		//this.renderable.addAnimation("idle", [0], 100);
-		
-		//this.renderable.setCurrentAnimation("idle");
 
         this.minStamina = 0;
         
