@@ -10,7 +10,7 @@ game.resources = [
     {name: "gfxlib_FreeTileset_64",  type:"image", src: "data/img/map/gfxlib_FreeTileset_64.png"},
 
     // main player spritesheet
-    {name: "gripe_run_right",  type:"image", src: "data/img/spritesheets/gripe_run_right.png"},
+    {name: "police",  type:"image", src: "James textures/Character/policeSpriteSheet.png"},
 
     // sprite sheets
     {name: "debug_die",  type:"image", src: "data/img/spritesheets/debug_die.png"},
