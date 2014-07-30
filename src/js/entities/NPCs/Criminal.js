@@ -2,6 +2,8 @@
 game.Criminal = me.ObjectEntity.extend({
 	"init": function(x, y, settings) {
 
+    console.log(settings);
+
 
   	console.log("Criminal init called"); // called
 
@@ -15,7 +17,9 @@ game.Criminal = me.ObjectEntity.extend({
 
     this.canHit = true;
 
-    this.renderable.addAnimation("debug_die", [0, 1, 2, 3, 4], 200);
+    this.z = 1;
+
+    this.renderable.addAnimation("debug_die_anim", [0, 1, 2, 3, 4], 200);
 
     this.renderable.addAnimation("idle", [0], 100);
 
@@ -29,6 +33,11 @@ game.Criminal = me.ObjectEntity.extend({
   },
 
   update: function(dt) {
+
+    if (!this.renderable.isCurrentAnimation("debug_die_anim")) {
+      console.log("not debug_die_anim");
+
+    }
 
     this.parent(dt);
 
@@ -72,12 +81,12 @@ game.Criminal = me.ObjectEntity.extend({
 
 
 
-      if (!this.renderable.isCurrentAnimation("debug_die")) {
+      if (!this.renderable.isCurrentAnimation("debug_die_anim")) {
 
-        console.log("not debug_dieing")
+        console.log("not debug_die_anim")
         // do something funny...
         var _this = this;
-        this.renderable.setCurrentAnimation("debug_die", function () {
+        this.renderable.setCurrentAnimation("debug_die_anim", function () {
           console.log("Finished!");
           me.game.world.removeChild(_this);
         });

@@ -12,6 +12,9 @@
 		<!-- Canvas placeholder -->
 		<div id="screen"></div>
 
+		<!-- Get Local Crimes -->
+		<script type="text/javascript" src="js/GetLocalCrimes.js"></script>
+
 		<!-- melonJS Library -->
 		<!-- build:js js/app.min.js -->
 		<script type="text/javascript" src="lib/melonJS-1.0.1.js"></script>
@@ -32,6 +35,7 @@
 		<!-- General game scripts -->
 		<script type="text/javascript" src="js/entities/NPCs/NPC.js"></script>
 		<script type="text/javascript" src="js/entities/NPCs/Criminal.js"></script>
+		<script type="text/javascript" src="js/entities/Special/CriminalSpawner.js"></script>
 		<script type="text/javascript" src="js/entities/effects/particleEffect.js"></script>
 
 		<script type="text/javascript" src="js/screens/title.js"></script>
@@ -41,8 +45,10 @@
 		<!-- Bootstrap & Mobile optimization tricks -->
 		<script type="text/javascript">
 			window.onReady(function onReady() {
-				
-				game.onload();
+
+				//game.onload();
+
+				getLocalCrimes();
 
 				// Mobile browser hacks
 				if (me.device.isMobile && !navigator.isCocoonJS) {

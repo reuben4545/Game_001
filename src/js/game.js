@@ -10,7 +10,9 @@ var game = {
     },
      
     // Run on page load.
-    "onload" : function () {
+    "onload" : function (crimes) {
+
+        //console.log("crimes is " + crimes);
 
         game.width = window.innerWidth;
         game.height = window.innerHeight;
@@ -69,6 +71,9 @@ var game = {
 
       // register Criminal
       me.pool.register("Criminal", game.Criminal);
+
+      // register Criminal Spawner
+      me.pool.register("CriminalSpawner", game.CriminalSpawner);
 
       // register fire
       me.pool.register("ParticleEffect", game.ParticleEffect);
