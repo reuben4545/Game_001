@@ -1,14 +1,12 @@
+
 game.Criminal = me.ObjectEntity.extend({
 	"init": function(x, y, settings) {
-
-    console.log(settings);
-
-
-  	console.log("Criminal init called"); // called
 
   	this.parent(x, y, settings);
 
   	this.type = "Criminal"
+
+    this.maxHealth = 10;
 
     this.health = 10;
 
@@ -23,12 +21,6 @@ game.Criminal = me.ObjectEntity.extend({
     this.renderable.addAnimation("idle", [0], 100);
 
     this.renderable.setCurrentAnimation("idle");
-
-    //this.renderable.setCurrentAnimation("debug_die");
-
-
-    //this.renderable.setCurrentAnimation("debug_die");
-
 
 
   },
@@ -54,14 +46,6 @@ game.Criminal = me.ObjectEntity.extend({
       this.canHit = true;
     }
 
-
-  },
-
-  onCollision: function(res, obj){
-
-  	if (obj.type === 'player'){
-  		// Do something?
-  	}
 
   },
 

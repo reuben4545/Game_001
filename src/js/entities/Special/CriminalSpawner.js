@@ -5,20 +5,23 @@ game.CriminalSpawner = me.ObjectEntity.extend({
 
     this.parent(x, y, settings);
 
-    this.type = "CriminalSpawner";
+    this.type = "Spawner";
+    this.name = "Spawner";
 
-    /*me.game.world.addChild(new game.NPC( 
-      this.pos.x, 
-      this.pos.y, 
-      { sprite:      'npc_red_invader', 
-        spritewidth: 64,
-        spriteheight: 64,
-        height: 64,
-        width: 64
-      } 
-    ));*/
+    this.spawn();
 
-    me.game.world.addChild(new game.Criminal( 
+  },
+
+
+  spawn: function(){
+
+    console.log(game.crimes);
+
+    crime = game.crimes[Math.round(Math.random() * (game.crimes.length - 1))];
+
+    console.log("Crime is " + crime);
+
+    me.game.world.addChild(new game.crimeDictonary[crime]( 
       this.pos.x, 
       this.pos.y, 
       { gid: null,
@@ -34,12 +37,10 @@ game.CriminalSpawner = me.ObjectEntity.extend({
         width: 64,
         x: this.pos.x,
         y: this.pos.y,
-        z: 6
+        z: 100,
+
       } 
-    ));
-
-
-
+    ), 100);
 
   }
 

@@ -14,6 +14,31 @@ var game = {
 
         //console.log("crimes is " + crimes);
 
+        game.crimes = crimes;
+
+        // Create a dictonary to store all the types of criminals 
+        // Metropolitan Police Database Category --> Game_001 Class
+        game.crimeDictonary = new Object();
+
+        game.crimeDictonary["anti-social-behaviour"] = game.ASBO;
+        game.crimeDictonary["burglary"] = game.burglar;
+        game.crimeDictonary["bicycle-theft"] = game.thief;
+        game.crimeDictonary["theft-from-the-person"] = game.thief;
+        game.crimeDictonary["other-theft"] = game.theif;
+        game.crimeDictonary["criminal-damage-arson"] = game.Arson;
+
+
+        //So many. Don't they look pretty. They outline the reflection of my bloodshot eyes on my monitor flowing with cafiene. Leave me with Coffee and a computer for two days and who knows what I will do. TODO: CLEANUP
+        game.crimeDictonary["shoplifting"] = game.teen;
+        game.crimeDictonary["possession-of-weapons"] = game.weapons;
+        game.crimeDictonary["vehicle-crime"] = game.vehicle;
+        game.crimeDictonary["violent-crime"] = game.violent;
+        game.crimeDictonary["bicycle-theft"] = game.thief;
+        game.crimeDictonary["bicycle-theft"] = game.thief;
+        game.crimeDictonary["bicycle-theft"] = game.thief;
+        game.crimeDictonary["bicycle-theft"] = game.thief;
+
+
         game.width = window.innerWidth;
         game.height = window.innerHeight;
  
