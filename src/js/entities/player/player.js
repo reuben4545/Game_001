@@ -30,6 +30,11 @@ game.PlayerEntity = me.ObjectEntity.extend({
         this.maxHealth = 10;
 
         this.minHealth = 0;
+		
+		//Sets player idle image
+		//this.renderable.addAnimation("idle", [0], 100);
+		
+		//this.renderable.setCurrentAnimation("idle");
 
  
         // set the display to follow our position on both axis
