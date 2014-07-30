@@ -14,7 +14,7 @@ game.resources = [
 
     // sprite sheets
     {name: "debug_die",  type:"image", src: "data/img/spritesheets/debug_die.png"},
-
+    {name: "debug_jie",  type:"image", src: "data/img/spritesheets/debug_die_jim.png"},
 
     // NPC textures
     {name: "npc_fred",  type:"image", src: "data/img/entity/npc/fred.png"},

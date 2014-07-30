@@ -32,8 +32,8 @@ game.CriminalSpawner = me.ObjectEntity.extend({
         spritewidth: 64,
         type: undefined,
         width: 64,
-        x: 1600,
-        y: 2176,
+        x: this.pos.x,
+        y: this.pos.y,
         z: 6
       } 
     ));

@@ -38,13 +38,15 @@ game.PlayerEntity = me.ObjectEntity.extend({
 
     fire: function(){
 
-        //console.log("FIRE!");
-
-        //###########
         criminals = me.game.world.getChildByName("Criminal");
+
+        console.log("Criminal Length: " + me.game.world.getChildByName("Criminal").length);
+        console.log("Nothing Length: " + me.game.world.getChildByName("").length);
 
 
         for(var i = 0; i < criminals.length; i++){
+
+            console.log("CRIMINAL!");
 
             // Use pythag to check if the enemy is closer than 96 units
             if(Math.sqrt(Math.abs(Math.pow(this.pos.x - criminals[i].pos.x, 2)) + Math.abs(Math.pow(this.pos.y - criminals[i].pos.y, 2))) < 96){
@@ -58,9 +60,6 @@ game.PlayerEntity = me.ObjectEntity.extend({
             }
 
         }
-        //##########
-
-
 
 
     },

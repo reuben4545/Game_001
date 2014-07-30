@@ -30,19 +30,15 @@ game.Criminal = me.ObjectEntity.extend({
 
     //this.renderable.setCurrentAnimation("debug_die");
 
+    console.log("Criminal Length: " + me.game.world.getChildByName("Criminal").length);
+
   },
 
   update: function(dt) {
 
-    if (!this.renderable.isCurrentAnimation("debug_die_anim")) {
-      console.log("not debug_die_anim");
-
-    }
 
     this.parent(dt);
 
-
-    console.log("dun");
 
     player = me.game.world.getChildByName("player")[0];
 
@@ -57,7 +53,6 @@ game.Criminal = me.ObjectEntity.extend({
       }
 
     }else{
-      console.log("Can Print!");
       this.canHit = true;
     }
 
@@ -87,7 +82,7 @@ game.Criminal = me.ObjectEntity.extend({
         // do something funny...
         var _this = this;
         this.renderable.setCurrentAnimation("debug_die_anim", function () {
-          console.log("Finished!");
+          console.log("Finished! - bye bye!");
           me.game.world.removeChild(_this);
         });
       }
