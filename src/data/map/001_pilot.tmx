@@ -18,6 +18,7 @@
  </layer>
  <objectgroup name="Player" width="40" height="40">
 <<<<<<< HEAD
+<<<<<<< HEAD
   <object name="mainPlayer" x="2111" y="2240" width="67" height="135">
    <properties>
     <property name="image" value="police"/>
@@ -26,16 +27,25 @@
    <properties>
     <property name="image" value="police_idle"/>
 >>>>>>> origin/James_Development
+=======
+  <object name="mainPlayer" x="2111" y="2240" width="64" height="128">
+   <properties>
+    <property name="image" value="police_idle"/>
+>>>>>>> origin/master
     <property name="spritewidth" value="64"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup name="Enemies" width="40" height="40">
 <<<<<<< HEAD
+<<<<<<< HEAD
   <object name="Criminal" x="1600" y="2176" width="63" height="132">
 =======
   <object name="Criminal" x="1600" y="2176" width="64" height="128">
 >>>>>>> origin/James_Development
+=======
+  <object name="Criminal" x="1600" y="2176" width="64" height="128">
+>>>>>>> origin/master
    <properties>
     <property name="image" value="criminal"/>
     <property name="spriteheight" value="128"/>
