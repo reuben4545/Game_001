@@ -196,10 +196,10 @@ game.PlayerEntity = me.ObjectEntity.extend({
 
             if(me.input.isKeyPressed("shift")){
 
-                //DEBUG! REMOVE!
-
-                this.setVelocity(9, 9);
-                this.isSprinting = true;
+                if(this.stamina > 15) {
+                    this.setVelocity(9, 9);
+                    this.isSprinting = true;
+                }
             }else{
 
                 this.setVelocity(5, 5);
