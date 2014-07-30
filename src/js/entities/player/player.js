@@ -29,7 +29,7 @@ game.PlayerEntity = me.ObjectEntity.extend({
         this.collidable = true;
         
         this.health = 100;
-        this.stamina = 25;
+        this.stamina = 100;
         
         this.maxHealth = 100;
         this.maxStamina = 100;
