@@ -15,7 +15,7 @@ game.Criminal = me.ObjectEntity.extend({
 
     this.canHit = true;
 
-    this.renderable.addAnimation("debug_die", [0, 1, 2, 3, 4], 200);
+    this.renderable.addAnimation("debug_die", [1, 2, 3, 4], 200);
 
     this.renderable.addAnimation("idle", [0], 100);
 
@@ -71,8 +71,8 @@ game.Criminal = me.ObjectEntity.extend({
 
       if (!this.renderable.isCurrentAnimation("debug_die")) {
 
-        console.log("not debug_dieing")
-        // do something funny...
+        console.log("not debug_dieing");
+
         var _this = this;
         this.renderable.setCurrentAnimation("debug_die", function () {
           console.log("Finished!");
