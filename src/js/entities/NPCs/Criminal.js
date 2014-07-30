@@ -2,6 +2,9 @@
 game.Criminal = me.ObjectEntity.extend({
 	"init": function(x, y, settings) {
 
+    console.log(this.z);
+
+     this.z = 0;
 
   	console.log("Criminal init called"); // called
 
@@ -30,9 +33,9 @@ game.Criminal = me.ObjectEntity.extend({
 
   update: function(dt) {
 
-    this.parent(dt);
+    console.log("Criminal Health Is " + this.health);
 
-    this.updateMovement();
+    this.parent(dt);
 
 
     player = me.game.world.getChildByName("player")[0];
@@ -49,6 +52,23 @@ game.Criminal = me.ObjectEntity.extend({
 
     }else{
       this.canHit = true;
+    }
+
+    if(this.health <= 0){
+      console.log("deaded");
+
+
+      if (!this.renderable.isCurrentAnimation("debug_die")) {
+
+        console.log("not debug_dieing");
+
+         var _this = this;
+        this.renderable.setCurrentAnimation("debug_die", function () {
+          me.game.world.removeChild(_this);
+        });
+      }
+
+
     }
 
 
@@ -68,28 +88,7 @@ game.Criminal = me.ObjectEntity.extend({
 
     this.health -= damage;
 
-    if(this.health <= 0){
-      console.log("deaded");
 
-
-
-      if (!this.renderable.isCurrentAnimation("debug_die")) {
-
-        console.log("not debug_dieing");
-
-        _this = this;
-        this.renderable.setCurrentAnimation("debug_die", function () {
-          console.log("Finished!");
-          me.game.world.removeChild(_this);
-        });
-      }
-
-
-
-
-    }else{
-      console.log("HIT!");
-    }
   }
 
 

@@ -25,7 +25,7 @@
   </object>
  </objectgroup>
  <objectgroup name="Enemies" width="40" height="40">
-  <object name="Criminal" x="1600" y="2176" width="64" height="128">
+  <object name="Criminal" x="1561" y="2176" width="64" height="128">
    <properties>
     <property name="image" value="criminal"/>
     <property name="spriteheight" value="128"/>
