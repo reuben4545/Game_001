@@ -19,12 +19,9 @@ game.Criminal = me.ObjectEntity.extend({
 
     this.renderable.addAnimation("idle", [0], 100);
 
+
     this.renderable.setCurrentAnimation("idle");
 
-    //this.renderable.setCurrentAnimation("debug_die");
-
-
-    //this.renderable.setCurrentAnimation("debug_die");
 
   },
 
