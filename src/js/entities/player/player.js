@@ -51,13 +51,10 @@ game.PlayerEntity = me.ObjectEntity.extend({
             
             player.staminaTimer++;
             player.healthTimer++;
-            console.log("Stamina Timer = " + player.staminaTimer);
-            console.log("Health Timer = " + player.healthTimer);
             
             if(player.staminaTimer == player.staminaRegenRate) {
                 player.staminaTimer = 0;
                 player.stamina += 1;
-                console.log("Stamina is = " + player.stamina)
             }
             
             if(player.healthTimer == player.healthRegenRate) {
