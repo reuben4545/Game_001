@@ -10,7 +10,7 @@ var game = {
     },
      
     // Run on page load.
-    "onload" : function (crimes) {
+    onload : function (crimes) {
 
         //console.log("crimes is " + crimes);
 
@@ -54,7 +54,7 @@ var game = {
      
    ---  */
      
-	"loaded" : function ()
+	loaded : function ()
 	{
 		console.log("loaded was called");
       // set the "Play/Ingame" Screen Object
