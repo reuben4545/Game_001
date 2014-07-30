@@ -51,4 +51,12 @@
    </properties>
   </object>
  </objectgroup>
+ <objectgroup name="Hunter" width="100" height="100">
+  <object name="Hunter" x="624" y="705" width="64" height="64">
+   <properties>
+    <property name="image" value="gripe_run_right"/>
+    <property name="spritewidth" value="64"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>
