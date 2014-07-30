@@ -89,7 +89,7 @@ game.PlayerEntity = me.ObjectEntity.extend({
     ------ */
     update: function(dt) {
 
-        
+        this.parent(dt);
 
         //console.log(this.pos.x);
 
@@ -160,6 +160,7 @@ game.PlayerEntity = me.ObjectEntity.extend({
 
             }
         }
+
  
 
         // update animation if necessary

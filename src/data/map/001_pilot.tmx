@@ -27,9 +27,9 @@
  <objectgroup name="Enemies" width="40" height="40">
   <object name="Criminal" x="1600" y="2176" width="64" height="64">
    <properties>
-    <property name="image" value="npc_red_invader"/>
-    <property name="spriteheight" value="47"/>
-    <property name="spritewidth" value="63"/>
+    <property name="image" value="debug_die"/>
+    <property name="spriteheight" value="64"/>
+    <property name="spritewidth" value="64"/>
    </properties>
   </object>
  </objectgroup>
