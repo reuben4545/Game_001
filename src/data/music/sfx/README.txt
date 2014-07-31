@@ -1,1 +1,0 @@
-General sound effects are stored here.
