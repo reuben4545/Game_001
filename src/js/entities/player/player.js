@@ -51,27 +51,35 @@ game.PlayerEntity = me.ObjectEntity.extend({
             
             player.staminaTimer++;
             player.healthTimer++;
-            
+            //regen stamina
             if(player.staminaTimer == player.staminaRegenRate) {
                 player.staminaTimer = 0;
                 player.stamina += 1;
             }
-            
+            //regen health
             if(player.healthTimer == player.healthRegenRate) {
                 player.healthTimer = 0;
                 player.health += 1;
             }
-            
+            //remove stamina while player is sprinting
             if(player.isSprinting) {
                 player.stamina -= 2;
             }
-            
+            //make health cap
             if(player.health > player.maxHealth) {
                 player.health = player.maxHealth;
             }
-            
+            //make stamina cap
             if(player.stamina > player.maxStamina) {
-                player.stamina = player. maxStamina;   
+                player.stamina = player.maxStamina;   
+            }
+            //make sure stamina can not go negetive
+            if(player.stamina < 0) {
+                player.stamina = 0;
+            }
+            //prevent player from sprinting forever
+            if(player.isSprinting == true & player.stamina <= 0) {
+                player.setVelocity(5, 5);
             }
         }, 100);
 
@@ -194,12 +202,12 @@ game.PlayerEntity = me.ObjectEntity.extend({
 
             if(me.input.isKeyPressed("shift")){
 
-                if(this.stamina > 15) {
+                if(this.stamina > 15 & this.isSprinting == false) {
                     this.setVelocity(9, 9);
                     this.isSprinting = true;
                 }
             }else{
-
+                
                 this.setVelocity(5, 5);
                 this.isSprinting = false;
             }
