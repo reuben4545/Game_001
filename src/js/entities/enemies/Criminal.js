@@ -68,6 +68,8 @@ game.Criminal = me.ObjectEntity.extend({
       if(this.canHit){    
         player.hit(1);
 
+        console.log("HITTING");
+
         this.canHit = false;
 
         _this = this;
@@ -117,7 +119,8 @@ game.Criminal = me.ObjectEntity.extend({
         // do something funny...
         var _this = this;
         this.renderable.setCurrentAnimation("debug_die_anim", function () {
-          console.log("Finished! - bye bye!");
+          _this.renderable.setCurrentAnimation("idle");
+          console.log("Done!");
           me.game.world.removeChild(_this);
         });
       }

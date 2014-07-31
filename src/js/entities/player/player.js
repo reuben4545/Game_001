@@ -22,12 +22,7 @@ game.PlayerEntity = me.ObjectEntity.extend({
  
         // set the default horizontal & vertical speed (accel vector)
         this.setVelocity(5, 5);
-        
-        this.renderable.addAnimation("debug_die", [1, 2, 3, 4], 200);
 
-        this.renderable.addAnimation("idle", [1], 100);
-
-        this.renderable.setCurrentAnimation("idle");
         // ptthh. Who needs gravity?
         this.gravity = 0
 
@@ -91,7 +86,7 @@ game.PlayerEntity = me.ObjectEntity.extend({
 
         this.renderable.addAnimation("idle", [0], 100);
 
-        this.renderable.addAnimation("hit", [2], 1000);
+        this.renderable.addAnimation("hit", [2], 500);
 
 
         this.renderable.setCurrentAnimation("idle");
@@ -142,11 +137,14 @@ game.PlayerEntity = me.ObjectEntity.extend({
 
     hit: function(damage){
 
+        console.log("HIT!");
+
         this.health -= damage;
 
         _this = this;
         this.renderable.setCurrentAnimation("hit", function(){
             _this.renderable.setCurrentAnimation("idle");
+            console.log("done!");
         });
 
         if(this.health <= this.minHealth){
@@ -166,6 +164,8 @@ game.PlayerEntity = me.ObjectEntity.extend({
  
     ------ */
     update: function(dt) {
+
+        console.log(this.renderable.isCurrentAnimation("idle"))
 
         this.parent(dt);
 
