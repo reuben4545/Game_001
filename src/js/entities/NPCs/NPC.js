@@ -1,4 +1,5 @@
 game.NPC = me.ObjectEntity.extend({
+  
 	"init": function(x, y, settings) {
 
 	console.log("NPC init called"); // called
@@ -13,25 +14,7 @@ game.NPC = me.ObjectEntity.extend({
   //this.font = new me.BitmapFont("32x32_font", 32);
   this.font = new me.Font("Arial", 15, "white");
 
-  },
-
-  update: function(dt) {
-
-    var res = me.game.world.collide(this);
-
-    if(res){
-      console.log("Collision!");
-    }
-
-  },
-
-  onCollision: function(res, obj){
-
-  	if (obj.type === 'player'){
-  		// Do something?
-  	}
-
-  },
+  }
 
 
 });
