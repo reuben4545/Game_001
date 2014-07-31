@@ -1,3 +1,5 @@
+
+
 /*------------------- 
 a player entity
 -------------------------------- */
@@ -22,7 +24,12 @@ game.PlayerEntity = me.ObjectEntity.extend({
  
         // set the default horizontal & vertical speed (accel vector)
         this.setVelocity(5, 5);
+        
+        this.renderable.addAnimation("debug_die", [1, 2, 3, 4], 200);
 
+        this.renderable.addAnimation("idle", [1], 100);
+
+        this.renderable.setCurrentAnimation("idle");
         // ptthh. Who needs gravity?
         this.gravity = 0
 
@@ -86,10 +93,12 @@ game.PlayerEntity = me.ObjectEntity.extend({
 
         this.renderable.addAnimation("idle", [0], 100);
 
-        this.renderable.addAnimation("hit", [2], 500);
+        this.renderable.addAnimation("hit", [2], 1000);
 
 
         this.renderable.setCurrentAnimation("idle");
+
+
  
         // set the display to follow our position on both axis
         me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
@@ -97,16 +106,18 @@ game.PlayerEntity = me.ObjectEntity.extend({
 
     fire: function(){
 
+        //console.log("FIRE!");
 
-        if(this.canHit){
-
-            criminals = me.game.world.getChildByName("Criminal");
-
-            console.log("Criminal Length: " + me.game.world.getChildByName("Criminal").length);
-            console.log("Nothing Length: " + me.game.world.getChildByName("").length);
+        //###########
+        criminals = me.game.world.getChildByName("Criminal");
 
 
-            for(var i = 0; i < criminals.length; i++){
+        for(var i = 0; i < criminals.length; i++){
+
+            // Use pythag to check if the enemy is closer than 96 units
+            if(Math.sqrt(Math.abs(Math.pow(this.pos.x - criminals[i].pos.x, 2)) + Math.abs(Math.pow(this.pos.y - criminals[i].pos.y, 2))) < 96){
+
+                //console.log("criminal " + i + " is nearby!!!!!");
 
                 // call hit function in criminal class
 
@@ -117,22 +128,14 @@ game.PlayerEntity = me.ObjectEntity.extend({
 
                 //criminals[i].vel.y = (this.pos.y - criminals[i].pos.y) * -1;
 
-
-                // Use pythag to check if the enemy is closer than 96 units
-                if(Math.sqrt(Math.abs(Math.pow(this.pos.x - criminals[i].pos.x, 2)) + Math.abs(Math.pow(this.pos.y - criminals[i].pos.y, 2))) < 96){
-
-                    criminals[i].hit(1);
-
-                    this.canHit = false;
-
-                    _this = this;
-                    setTimeout(function(){
-                        _this.canHit = true
-                    }, 500);
-
-                }
             }
+
         }
+        //##########
+
+
+
+
     },
 
     hit: function(damage){
@@ -161,8 +164,6 @@ game.PlayerEntity = me.ObjectEntity.extend({
  
     ------ */
     update: function(dt) {
-
-        console.log(this.renderable.isCurrentAnimation("idle"))
 
         this.parent(dt);
 
