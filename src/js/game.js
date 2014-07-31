@@ -34,8 +34,6 @@ var game = {
         game.crimeDictonary["violent-crime"] = game.violent;
         game.crimeDictonary["public-order"] = game.weirdal;
         game.crimeDictonary["drugs"] = game.thief;
-        game.crimeDictonary["bicycle-theft"] = game.thief;
-        game.crimeDictonary["bicycle-theft"] = game.thief;
 
 
         game.width = window.innerWidth;
