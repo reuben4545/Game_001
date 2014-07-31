@@ -13,6 +13,9 @@ game.PlayerEntity = me.ObjectEntity.extend({
     
  
     init: function(x, y, settings) {
+
+        console.log(typeof settings);
+
         // call the constructor
         this.parent(x, y, settings);
 

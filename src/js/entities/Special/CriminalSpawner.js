@@ -31,14 +31,13 @@ game.CriminalSpawner = me.ObjectEntity.extend({
         isPolygon: false,
         isPolyline: false,
         name: "Criminal",
-        spriteheight: 64,
+        spriteheight: 128,
         spritewidth: 64,
         type: undefined,
         width: 64,
         x: this.pos.x,
         y: this.pos.y,
         z: 100,
-
       } 
     ), 100);
 
