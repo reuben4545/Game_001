@@ -140,10 +140,13 @@ game.PlayerEntity = me.ObjectEntity.extend({
 
     hit: function(damage){
 
+        console.log("HIT!");
+
         this.health -= damage;
 
         _this = this;
         this.renderable.setCurrentAnimation("hit", function(){
+            console.log("Setting to idle");
             _this.renderable.setCurrentAnimation("idle");
         });
 
