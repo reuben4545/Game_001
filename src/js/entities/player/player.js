@@ -102,7 +102,7 @@ game.PlayerEntity = me.ObjectEntity.extend({
         me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
     },
 
-    fire: function(){
+    fire: function() {
 
         //console.log("FIRE!");
 
@@ -136,7 +136,7 @@ game.PlayerEntity = me.ObjectEntity.extend({
 
     },
 
-    hit: function(damage){
+    hit: function(damage) {
 
         console.log("Hit");
 
