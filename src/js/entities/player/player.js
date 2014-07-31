@@ -22,6 +22,11 @@ game.PlayerEntity = me.ObjectEntity.extend({
  
         // set the default horizontal & vertical speed (accel vector)
         this.setVelocity(5, 5);
+        
+        //Set idle image
+        this.renderable.addAnimation("debug_die", [1, 2, 3, 4], 200);
+        this.renderable.addAnimation("idle", [1], 100);
+        this.renderable.setCurrentAnimation("idle");
 
         // ptthh. Who needs gravity?
         this.gravity = 0
