@@ -88,6 +88,15 @@ game.PlayerEntity = me.ObjectEntity.extend({
             }
         }, 100);
 
+
+        this.renderable.addAnimation("idle", [0], 100);
+
+        this.renderable.addAnimation("hit", [2], 1000);
+
+
+        this.renderable.setCurrentAnimation("idle");
+
+
  
         // set the display to follow our position on both axis
         me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
@@ -112,6 +121,11 @@ game.PlayerEntity = me.ObjectEntity.extend({
 
                 criminals[i].hit(1);
 
+
+                //criminals[i].vel.x = (this.pos.x - criminals[i].pos.x) * -1;
+
+                //criminals[i].vel.y = (this.pos.y - criminals[i].pos.y) * -1;
+
             }
 
         }
@@ -126,15 +140,18 @@ game.PlayerEntity = me.ObjectEntity.extend({
 
         this.health -= damage;
 
+        _this = this;
+        this.renderable.setCurrentAnimation("hit", function(){
+            _this.renderable.setCurrentAnimation("idle");
+        });
+
         if(this.health <= this.minHealth){
           console.log("player deaded");
           //dead!
 
-          me.game.world.removeChild(this);
+          //me.game.world.removeChild(this);
 
-          me.game.world.addChild(this, 3);
-
-
+          //me.game.world.addChild(this, 3);
 
         }
     },
@@ -223,7 +240,7 @@ game.PlayerEntity = me.ObjectEntity.extend({
         // update animation if necessary
         if (this.vel.x!=0 || this.vel.y!=0) {
             // update object animation
-            this.parent(dt);
+            //this.parent(dt);
             return true;
         }
          
