@@ -36,6 +36,8 @@ var game = {
         game.crimeDictonary["drugs"] = game.thief;
 
 
+        game.round = 1;
+
         game.width = window.innerWidth;
         game.height = window.innerHeight;
  
@@ -119,9 +121,35 @@ var game = {
      //console.log(me.pool.pull('mainPlayer'));
 
 	   console.log("loaded has finished");
-	}
+	},
 
-  /*"onLevelLoaded" : function(){
-    console.log("Level Loaded!");
-  }*/
+  updateRound: function(){
+
+    console.log("updateRound called!");
+
+    criminals = me.game.world.getChildByName("Criminal");
+
+    console.log("updateRound called, criminals.length is: " + criminals.length);
+    console.log(" condition is " + criminals.length <= 0);
+
+
+    // If all but one criminals have been killed, this is but one because to actually call this function, the criminal must exist. If this function is being called, the criminal is about to die.
+    if(criminals.length - 1 <= 0){
+
+      console.log("NEW ROUND!");
+
+      spawners = me.game.world.getChildByName("Spawner");
+
+      for(var i = 0; i < spawners.length; i++){
+
+        spawners[i].spawn(game.round);
+
+        game.round += 1;
+
+     }
+
+    }
+
+  }
+
 };

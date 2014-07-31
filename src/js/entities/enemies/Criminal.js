@@ -118,7 +118,7 @@ game.Criminal = me.ObjectEntity.extend({
       // do something funny...
       var _this = this;
       this.renderable.setCurrentAnimation("dead", function () {
-        me.game.world.removeChild(_this);
+        _this.die();
       });
 
     }else{
@@ -130,25 +130,33 @@ game.Criminal = me.ObjectEntity.extend({
   },
     
     
-   draw : function (context) {
-        
-        this.parent(context);
-            
-        healthPercent = this.health / this.maxHealth;
-       
-        if(this.health <= 0){
-            healthPercent = 0;
-        }
-            
-        context.fillStyle = 'red';
-        context.fillRect(this.pos.x, this.pos.y -30, 64 , 10);
-        
-        context.fillStyle = 'limegreen';
-        context.fillRect(this.pos.x, this.pos.y -30, 64 * healthPercent, 10);
-            
+ draw : function (context) {
+      
+      this.parent(context);
+          
+      healthPercent = this.health / this.maxHealth;
+     
+      if(this.health <= 0){
+          healthPercent = 0;
+      }
+          
+      context.fillStyle = 'red';
+      context.fillRect(this.pos.x, this.pos.y -30, 64 , 10);
+      
+      context.fillStyle = 'limegreen';
+      context.fillRect(this.pos.x, this.pos.y -30, 64 * healthPercent, 10);
+          
 
-        
-    }
+      
+  },
+
+  die: function(){
+
+    me.game.world.removeChild(this);
+
+    game.updateRound();
+
+  }
 
 
 });

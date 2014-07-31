@@ -8,12 +8,12 @@ game.CriminalSpawner = me.ObjectEntity.extend({
     this.type = "Spawner";
     this.name = "Spawner";
 
-    this.spawn();
+    this.spawn(1);
 
   },
 
 
-  spawn: function(){
+  spawn: function(round){
 
     index = Math.round(Math.random() * (game.crimes.length - 1))
 
@@ -22,6 +22,8 @@ game.CriminalSpawner = me.ObjectEntity.extend({
     game.crimes.splice(game.crimes, 1);
 
     console.log(crime);
+
+    console.log("SPAWNING!");
 
     me.game.world.addChild(new game.crimeDictonary[crime]( 
       this.pos.x, 

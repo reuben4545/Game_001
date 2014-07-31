@@ -112,6 +112,8 @@ game.PlayerEntity = me.ObjectEntity.extend({
         //###########
         criminals = me.game.world.getChildByName("Criminal");
 
+        console.log("Criminal Length Is: " + criminals.length);
+
 
         for(var i = 0; i < criminals.length; i++){
 
@@ -149,7 +151,6 @@ game.PlayerEntity = me.ObjectEntity.extend({
       var _this = this;
       this.renderable.setCurrentAnimation("hit", function(){
             _this.renderable.setCurrentAnimation("idle");
-            console.log("Hallo!");
       });
 
 
