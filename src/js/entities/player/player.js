@@ -73,6 +73,15 @@ game.PlayerEntity = me.ObjectEntity.extend({
             if(player.stamina > player.maxStamina) {
                 player.stamina = player. maxStamina;   
             }
+            
+            if(player.stamina < 0) {
+                player.stamina = 0;
+                player.isSprinting = false;
+            }
+            
+            if(player.isSprinting == true & player.stamina <= 0) {
+                player.setVelocity(5, 5);
+            }
         }, 100);
 
  
@@ -194,12 +203,12 @@ game.PlayerEntity = me.ObjectEntity.extend({
 
             if(me.input.isKeyPressed("shift")){
 
-                if(this.stamina > 15) {
+                if(this.stamina > 15 & this.isSprinting == false) {
                     this.setVelocity(9, 9);
                     this.isSprinting = true;
                 }
             }else{
-
+                
                 this.setVelocity(5, 5);
                 this.isSprinting = false;
             }
