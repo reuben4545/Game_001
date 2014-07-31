@@ -21,6 +21,10 @@ game.CriminalSpawner = me.ObjectEntity.extend({
 
     game.crimes.splice(game.crimes, 1);
 
+    console.log(crime);
+
+    console.log(game.crimeDictonary[crime]);
+
     me.game.world.addChild(new game.crimeDictonary[crime]( 
       this.pos.x, 
       this.pos.y, 
