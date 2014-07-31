@@ -95,8 +95,6 @@ game.PlayerEntity = me.ObjectEntity.extend({
 
 
         this.renderable.setCurrentAnimation("idle");
-
-
  
         // set the display to follow our position on both axis
         me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
@@ -104,18 +102,16 @@ game.PlayerEntity = me.ObjectEntity.extend({
 
     fire: function(){
 
-        //console.log("FIRE!");
 
-        //###########
-        criminals = me.game.world.getChildByName("Criminal");
+        if(this.canHit){
+
+            criminals = me.game.world.getChildByName("Criminal");
+
+            console.log("Criminal Length: " + me.game.world.getChildByName("Criminal").length);
+            console.log("Nothing Length: " + me.game.world.getChildByName("").length);
 
 
-        for(var i = 0; i < criminals.length; i++){
-
-            // Use pythag to check if the enemy is closer than 96 units
-            if(Math.sqrt(Math.abs(Math.pow(this.pos.x - criminals[i].pos.x, 2)) + Math.abs(Math.pow(this.pos.y - criminals[i].pos.y, 2))) < 96){
-
-                //console.log("criminal " + i + " is nearby!!!!!");
+            for(var i = 0; i < criminals.length; i++){
 
                 // call hit function in criminal class
 
@@ -126,14 +122,22 @@ game.PlayerEntity = me.ObjectEntity.extend({
 
                 //criminals[i].vel.y = (this.pos.y - criminals[i].pos.y) * -1;
 
+
+                // Use pythag to check if the enemy is closer than 96 units
+                if(Math.sqrt(Math.abs(Math.pow(this.pos.x - criminals[i].pos.x, 2)) + Math.abs(Math.pow(this.pos.y - criminals[i].pos.y, 2))) < 96){
+
+                    criminals[i].hit(1);
+
+                    this.canHit = false;
+
+                    _this = this;
+                    setTimeout(function(){
+                        _this.canHit = true
+                    }, 500);
+
+                }
             }
-
         }
-        //##########
-
-
-
-
     },
 
     hit: function(damage){
