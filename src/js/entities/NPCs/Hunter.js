@@ -1,13 +1,13 @@
 
-game.Criminal = me.ObjectEntity.extend({
+game.Hunter = me.ObjectEntity.extend({
 	"init": function(x, y, settings) {
 
 
-  	console.log("Criminal init called"); // called
+  	console.log("Hunter init called"); // called
 
   	this.parent(x, y, settings);
 
-  	this.type = "Criminal"
+  	this.type = "Hunter"
 
     this.health = 10;
 
@@ -15,20 +15,16 @@ game.Criminal = me.ObjectEntity.extend({
 
     this.canHit = true;
 
-    this.renderable.addAnimation("debug_die", [1, 2, 3, 4], 200);
+    this.renderable.addAnimation("debug_die", [ 0, 1, 2, 3, 4], 200);
 
-    this.renderable.addAnimation("idle", [0], 100);
+    //this.renderable.setCurrentAnimation("debug_die");
 
 
-    this.renderable.setCurrentAnimation("idle");
-
+    //this.renderable.setCurrentAnimation("debug_die");
 
   },
 
   update: function(dt) {
-
-    this.parent(dt);
-
 
     console.log("dun");
 
@@ -49,7 +45,6 @@ game.Criminal = me.ObjectEntity.extend({
       this.canHit = true;
     }
 
-
   },
 
   onCollision: function(res, obj){
@@ -66,16 +61,19 @@ game.Criminal = me.ObjectEntity.extend({
 
     if(this.health <= 0){
       console.log("deaded");
+      //dead!
+      //this.destroy();
 
+      //this.renderable.setCurrentAnimation("debug_die");
 
+      //this.renderable.setAnimationFrame();
 
       if (!this.renderable.isCurrentAnimation("debug_die")) {
 
-        console.log("not debug_dieing");
-
+        console.log("not debug_dieing")
+        // do something funny...
         var _this = this;
         this.renderable.setCurrentAnimation("debug_die", function () {
-          console.log("Finished!");
           me.game.world.removeChild(_this);
         });
       }

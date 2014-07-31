@@ -22,15 +22,6 @@ game.PlayerEntity = me.ObjectEntity.extend({
  
         // set the default horizontal & vertical speed (accel vector)
         this.setVelocity(5, 5);
-<<<<<<< HEAD
-        
-
-        //Set idle image
-        this.renderable.addAnimation("debug_die", [1, 2, 3, 4], 200);
-        this.renderable.addAnimation("idle", [1], 100);
-        this.renderable.setCurrentAnimation("idle");
-=======
->>>>>>> parent of e25e6e0... Merge remote-tracking branch 'origin/George_Development' into Merge_Test
 
         // ptthh. Who needs gravity?
         this.gravity = 0
@@ -60,46 +51,29 @@ game.PlayerEntity = me.ObjectEntity.extend({
             
             player.staminaTimer++;
             player.healthTimer++;
-            //regen stamina
+            
             if(player.staminaTimer == player.staminaRegenRate) {
                 player.staminaTimer = 0;
                 player.stamina += 1;
             }
-            //regen health
+            
             if(player.healthTimer == player.healthRegenRate) {
                 player.healthTimer = 0;
                 player.health += 1;
             }
-            //remove stamina while player is sprinting
+            
             if(player.isSprinting) {
                 player.stamina -= 2;
             }
-            //make health cap
+            
             if(player.health > player.maxHealth) {
                 player.health = player.maxHealth;
             }
-            //make stamina cap
+            
             if(player.stamina > player.maxStamina) {
-                player.stamina = player.maxStamina;   
-            }
-            //make sure stamina can not go negetive
-            if(player.stamina < 0) {
-                player.stamina = 0;
-            }
-            //prevent player from sprinting forever
-            if(player.isSprinting == true & player.stamina <= 0) {
-                player.setVelocity(5, 5);
+                player.stamina = player. maxStamina;   
             }
         }, 100);
-
-
-        this.renderable.addAnimation("idle", [0], 100);
-
-        this.renderable.addAnimation("hit", [2], 1000);
-
-
-        this.renderable.setCurrentAnimation("idle");
-
 
  
         // set the display to follow our position on both axis
@@ -125,11 +99,6 @@ game.PlayerEntity = me.ObjectEntity.extend({
 
                 criminals[i].hit(1);
 
-
-                //criminals[i].vel.x = (this.pos.x - criminals[i].pos.x) * -1;
-
-                //criminals[i].vel.y = (this.pos.y - criminals[i].pos.y) * -1;
-
             }
 
         }
@@ -144,18 +113,15 @@ game.PlayerEntity = me.ObjectEntity.extend({
 
         this.health -= damage;
 
-        _this = this;
-        this.renderable.setCurrentAnimation("hit", function(){
-            _this.renderable.setCurrentAnimation("idle");
-        });
-
         if(this.health <= this.minHealth){
           console.log("player deaded");
           //dead!
 
-          //me.game.world.removeChild(this);
+          me.game.world.removeChild(this);
 
-          //me.game.world.addChild(this, 3);
+          me.game.world.addChild(this, 3);
+
+
 
         }
     },
@@ -228,12 +194,12 @@ game.PlayerEntity = me.ObjectEntity.extend({
 
             if(me.input.isKeyPressed("shift")){
 
-                if(this.stamina > 15 & this.isSprinting == false) {
+                if(this.stamina > 15) {
                     this.setVelocity(9, 9);
                     this.isSprinting = true;
                 }
             }else{
-                
+
                 this.setVelocity(5, 5);
                 this.isSprinting = false;
             }
@@ -244,7 +210,7 @@ game.PlayerEntity = me.ObjectEntity.extend({
         // update animation if necessary
         if (this.vel.x!=0 || this.vel.y!=0) {
             // update object animation
-            //this.parent(dt);
+            this.parent(dt);
             return true;
         }
          
