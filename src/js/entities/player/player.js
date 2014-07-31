@@ -142,13 +142,13 @@ game.PlayerEntity = me.ObjectEntity.extend({
 
         this.health -= damage;
 
-       if(!this.renderable.isCurrentAnimation("hit")){
-          var _this = this;
-          this.renderable.setCurrentAnimation("hit", function(){
-                _this.renderable.setCurrentAnimation("idle");
-                console.log("Hallo!");
-          });
-        }
+
+      var _this = this;
+      this.renderable.setCurrentAnimation("hit", function(){
+            _this.renderable.setCurrentAnimation("idle");
+            console.log("Hallo!");
+      });
+
 
         if(this.health <= this.minHealth){
           console.log("player deaded");
