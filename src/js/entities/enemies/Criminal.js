@@ -1,7 +1,7 @@
 game.Criminal = me.ObjectEntity.extend({
 	"init": function(x, y, settings) {
 
-  	this.parent(x, y, settings);
+  	this.parent(x, y, settings); 
 
   	this.type = "Criminal"
 
