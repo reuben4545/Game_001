@@ -17,15 +17,15 @@
   </data>
  </layer>
  <objectgroup name="Player" width="40" height="40">
-  <object name="mainPlayer" x="2111" y="2240" width="64" height="128">
+  <object name="mainPlayer" x="2115" y="2243" width="64" height="128">
    <properties>
-    <property name="image" value="police_idle"/>
+    <property name="image" value="police"/>
     <property name="spritewidth" value="64"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup name="Enemies" width="40" height="40">
-  <object name="Criminal" x="1600" y="2176" width="64" height="128">
+  <object name="Criminal" x="1561" y="2176" width="64" height="128">
    <properties>
     <property name="image" value="criminal"/>
     <property name="spriteheight" value="128"/>
