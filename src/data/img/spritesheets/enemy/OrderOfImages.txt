@@ -1,0 +1,4 @@
+1 ([0]) = Dead
+2 ([1]) = Attack
+3 ([2]) = Damaged
+4 ([4]) = Idle

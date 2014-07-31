@@ -25,9 +25,13 @@ game.Criminal = me.ObjectEntity.extend({
 
     this.speed = 3;
 
-    this.renderable.addAnimation("debug_die_anim", [0, 1, 2, 3, 4], 200);
+    this.renderable.addAnimation("dead", [0], 400);
 
-    this.renderable.addAnimation("idle", [0], 100);
+    this.renderable.addAnimation("attack", [1], 400);
+
+    this.renderable.addAnimation("damaged", [2], 100);
+
+    this.renderable.addAnimation("idle", [3], 100);
 
     this.renderable.setCurrentAnimation("idle");
 
@@ -111,25 +115,17 @@ game.Criminal = me.ObjectEntity.extend({
     if(this.health <= 0){
       console.log("deaded");
 
-
-
-      if (!this.renderable.isCurrentAnimation("debug_die_anim")) {
-
-        console.log("not debug_die_anim")
-        // do something funny...
-        var _this = this;
-        this.renderable.setCurrentAnimation("debug_die_anim", function () {
-          _this.renderable.setCurrentAnimation("idle");
-          console.log("Done!");
-          me.game.world.removeChild(_this);
-        });
-      }
-
-
-
+      // do something funny...
+      var _this = this;
+      this.renderable.setCurrentAnimation("dead", function () {
+        me.game.world.removeChild(_this);
+      });
 
     }else{
-      console.log("HIT! Health: " + this.health);
+      var _this = this;
+      this.renderable.setCurrentAnimation("damaged", function () {
+        _this.renderable.setCurrentAnimation("idle");
+      });
     }
   }
 

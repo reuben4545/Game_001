@@ -3,6 +3,8 @@
 game.burglar = game.Criminal.extend({
 	"init": function(x, y, settings) {
 
+		settings.image = "burglarSpriteSheet";
+
   	this.parent(x, y, settings);
 
   	this.type = "Burglar"

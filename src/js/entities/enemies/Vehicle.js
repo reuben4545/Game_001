@@ -1,6 +1,8 @@
 game.vehicle = game.Criminal.extend({
 	"init": function(x, y, settings) {
 
+		settings.image = "vehicleSpriteSheet";
+
   	this.parent(x, y, settings);
 
   	this.type = "Vehicle"

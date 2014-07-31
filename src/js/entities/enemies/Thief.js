@@ -3,6 +3,8 @@
 game.theif = game.Criminal.extend({
 	"init": function(x, y, settings) {
 
+		settings.image = "theifSpriteSheet";
+
   	this.parent(x, y, settings);
 
   	this.type = "Thief"

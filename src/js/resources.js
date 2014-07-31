@@ -20,6 +20,21 @@ game.resources = [
     {name: "debug_die",  type:"image", src: "data/img/spritesheets/debug_die.png"},
     {name: "debug_jie",  type:"image", src: "data/img/spritesheets/debug_die_jim.png"},
 
+    // Enemy Spritesheets
+    {name: "arsonSpriteSheet",  type:"image", src: "data/img/spritesheets/enemy/arsonSpriteSheet.png"},
+    {name: "asboSpriteSheet",  type:"image", src: "data/img/spritesheets/enemy/asboSpriteSheet.png"},
+    {name: "burglarSpriteSheet",  type:"image", src: "data/img/spritesheets/enemy/burglarSpriteSheet.png"},   
+    {name: "teenSpriteSheet",  type:"image", src: "data/img/spritesheets/enemy/teenSpriteSheet.png"},
+    {name: "theifSpriteSheet",  type:"image", src: "data/img/spritesheets/enemy/theifSpriteSheet.png"},
+    {name: "vehicleSpriteSheet",  type:"image", src: "data/img/spritesheets/enemy/vehicleSpriteSheet.png"},
+    {name: "violentSpriteSheet",  type:"image", src: "data/img/spritesheets/enemy/violentSpriteSheet.png"},
+    {name: "weaponSpriteSheet",  type:"image", src: "data/img/spritesheets/enemy/weaponSpriteSheet.png"},
+    {name: "violentSpriteSheet",  type:"image", src: "data/img/spritesheets/enemy/violentSpriteSheet.png"},
+
+    // Place Holders
+    {name: "criminalSpriteSheet",  type:"image", src: "data/img/spritesheets/enemy/criminalSpriteSheet.png"},
+    {name: "placeHolderSpriteSheet",  type:"image", src: "data/img/spritesheets/enemy/placeHolderSpriteSheet.png"},
+
     // NPC textures
     {name: "npc_fred",  type:"image", src: "data/img/entity/npc/fred.png"},
     {name: "npc_red_invader",  type:"image", src: "data/img/entity/npc/red_invader.png"},
