@@ -10,7 +10,14 @@ game.resources = [
     {name: "gfxlib_FreeTileset_64",  type:"image", src: "data/img/map/gfxlib_FreeTileset_64.png"},
 
     // main player spritesheet
+<<<<<<< HEAD
     {name: "police",  type:"image", src: "James textures/Character/policeSpriteSheet.png"},
+=======
+    {name: "police_idle",  type:"image", src: "data/img/spritesheets/police_idle.png"},
+
+    // criminal spritesheet
+    {name: "criminal",  type:"image", src: "data/img/spritesheets/criminal.png"},
+>>>>>>> origin/James_Development
 
     // sprite sheets
     {name: "debug_die",  type:"image", src: "data/img/spritesheets/debug_die.png"},

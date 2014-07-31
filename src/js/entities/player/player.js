@@ -1,6 +1,7 @@
 /*------------------- 
 a player entity
 -------------------------------- */
+
 game.PlayerEntity = me.ObjectEntity.extend({
  
     /* -----
@@ -8,7 +9,8 @@ game.PlayerEntity = me.ObjectEntity.extend({
     constructor
  
     ------ */
- 
+    
+        
     init: function(x, y, settings) {
         // call the constructor
         this.parent(x, y, settings);
@@ -19,15 +21,22 @@ game.PlayerEntity = me.ObjectEntity.extend({
  
         // set the default horizontal & vertical speed (accel vector)
         this.setVelocity(5, 5);
+        
+        //Sets idle image
+        //this.renderable.addAnimation("debug_die", [1, 2, 3, 4], 200);
+        this.renderable.addAnimation("idle", [1], 100);
+        this.renderable.setCurrentAnimation("idle");
 
         // ptthh. Who needs gravity?
         this.gravity = 0
 
         this.collidable = true;
         
-        this.health = 10;
-
-        this.maxHealth = 10;
+        this.health = 100;
+        this.stamina = 100;
+        
+        this.maxHealth = 100;
+        this.maxStamina = 100;
 
         this.minHealth = 0;
 		
@@ -35,6 +44,45 @@ game.PlayerEntity = me.ObjectEntity.extend({
 		//this.renderable.addAnimation("idle", [0], 100);
 		
 		//this.renderable.setCurrentAnimation("idle");
+
+        this.minStamina = 0;
+        
+        this.staminaRegenRate = 2;
+        this.healthRegenRate = 100;
+        
+        this.staminaTimer = 1;
+        this.healthTimer = 1;
+        
+        this.isSprinting = false;
+        
+        window.setInterval(function updateStats() {
+            player = me.game.world.getChildByName("player")[0];
+            
+            player.staminaTimer++;
+            player.healthTimer++;
+            
+            if(player.staminaTimer == player.staminaRegenRate) {
+                player.staminaTimer = 0;
+                player.stamina += 1;
+            }
+            
+            if(player.healthTimer == player.healthRegenRate) {
+                player.healthTimer = 0;
+                player.health += 1;
+            }
+            
+            if(player.isSprinting) {
+                player.stamina -= 2;
+            }
+            
+            if(player.health > player.maxHealth) {
+                player.health = player.maxHealth;
+            }
+            
+            if(player.stamina > player.maxStamina) {
+                player.stamina = player. maxStamina;   
+            }
+        }, 100);
 
  
         // set the display to follow our position on both axis
@@ -155,14 +203,14 @@ game.PlayerEntity = me.ObjectEntity.extend({
 
             if(me.input.isKeyPressed("shift")){
 
-                //DEBUG! REMOVE!
-
-                this.setVelocity(15, 15);
-
+                if(this.stamina > 15) {
+                    this.setVelocity(9, 9);
+                    this.isSprinting = true;
+                }
             }else{
 
                 this.setVelocity(5, 5);
-
+                this.isSprinting = false;
             }
         }
 
