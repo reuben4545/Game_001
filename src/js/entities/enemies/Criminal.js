@@ -127,7 +127,28 @@ game.Criminal = me.ObjectEntity.extend({
         _this.renderable.setCurrentAnimation("idle");
       });
     }
-  }
+  },
+    
+    
+   draw : function (context) {
+        
+        this.parent(context);
+            
+        healthPercent = this.health / this.maxHealth;
+       
+        if(this.health <= 0){
+            healthPercent = 0;
+        }
+            
+        context.fillStyle = 'red';
+        context.fillRect(this.pos.x, this.pos.y -30, 64 , 10);
+        
+        context.fillStyle = 'limegreen';
+        context.fillRect(this.pos.x, this.pos.y -30, 64 * healthPercent, 10);
+            
+
+        
+    }
 
 
 });
