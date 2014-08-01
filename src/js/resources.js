@@ -19,6 +19,9 @@ game.resources = [
     // sprite sheets
     {name: "debug_die",  type:"image", src: "data/img/spritesheets/debug_die.png"},
     {name: "debug_jie",  type:"image", src: "data/img/spritesheets/debug_die_jim.png"},
+    
+
+    {name: "deathExplosion",  type:"image", src: "data/img/spritesheets/deathExplosion.png"},
 
     // Enemy Spritesheets
     {name: "arsonSpriteSheet",  type:"image", src: "data/img/spritesheets/enemy/arsonSpriteSheet.png"},

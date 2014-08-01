@@ -152,7 +152,16 @@ game.Criminal = me.ObjectEntity.extend({
 
   die: function(){
 
-    me.game.world.removeChild(this);
+    console.log("died!");
+
+    this.reference = me.loader.getImage("deathExplosion");
+
+    this.getShape().resize(256, 128);
+    this.getShape().translate(64, 128);
+
+    this.renderable.setCurrentAnimation("damaged");
+
+    //me.game.world.removeChild(this);
 
     game.updateRound();
 
