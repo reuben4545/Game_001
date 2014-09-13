@@ -25,7 +25,13 @@ game.CriminalSpawner = me.ObjectEntity.extend({
 
     console.log("SPAWNING!");
 
-    me.game.world.addChild(new game.crimeDictonary[crime]( 
+    if(crime in game.crimeDictonary){
+      var criminal = game.crimeDictonary[crime];
+    }else{
+      var criminal = game.crimeDictonary["anti-social-behaviour"];
+    }
+
+    me.game.world.addChild(new criminal( 
       this.pos.x, 
       this.pos.y, 
       { gid: null,
