@@ -118,6 +118,7 @@ game.Criminal = me.ObjectEntity.extend({
       // do something funny...
       var _this = this;
       this.renderable.setCurrentAnimation("dead", function () {
+        console.log("Now I'm really dead...");
         _this.die();
       });
 
@@ -159,11 +160,14 @@ game.Criminal = me.ObjectEntity.extend({
     this.getShape().resize(256, 128);
     this.getShape().translate(64, 128);
 
-    this.renderable.setCurrentAnimation("damaged");
+    //this.renderable.setCurrentAnimation("damaged");
 
-    //me.game.world.removeChild(this);
+    //This line was removed. I unremoved it. I think something bad will happen.
+    me.game.world.removeChild(this);
 
     game.updateRound();
+
+    console.log("OFFICIALY DEAD...");
 
   }
 

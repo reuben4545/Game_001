@@ -21,15 +21,20 @@ game.CriminalSpawner = me.ObjectEntity.extend({
 
     game.crimes.splice(game.crimes, 1);
 
-    console.log(crime);
+    console.log("::" + crime.length);
+    crime.split(' ').join(''); // remove spaces
+    console.log("::" + crime.length);
 
-    console.log("SPAWNING!");
+    console.log("SPAWNING! - " + crime);
 
-    if(crime in game.crimeDictonary){
-      var criminal = game.crimeDictonary[crime];
-    }else{
-      var criminal = game.crimeDictonary["anti-social-behaviour"];
+    var criminal = game.crimeDictonary[crime];
+
+    if(typeof criminal === "undefined"){
+      criminal = game.ASBO;
     }
+
+
+    console.log(criminal);
 
     me.game.world.addChild(new criminal( 
       this.pos.x, 
