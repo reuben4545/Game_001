@@ -116,11 +116,13 @@ game.Criminal = me.ObjectEntity.extend({
       console.log("deaded");
 
       // do something funny...
-      var _this = this;
+      /*var _this = this;
       this.renderable.setCurrentAnimation("dead", function () {
         console.log("Now I'm really dead...");
         _this.die();
-      });
+      });*/
+
+      this.die();
 
     }else{
       var _this = this;
@@ -146,6 +148,8 @@ game.Criminal = me.ObjectEntity.extend({
       
       context.fillStyle = 'limegreen';
       context.fillRect(this.pos.x, this.pos.y -30, 64 * healthPercent, 10);
+
+      console.log(this.reference + " ************************************");
           
 
       
@@ -155,19 +159,43 @@ game.Criminal = me.ObjectEntity.extend({
 
     console.log("died!");
 
+    console.log(this.image);
+
     this.reference = me.loader.getImage("deathExplosion");
 
     this.getShape().resize(256, 128);
     this.getShape().translate(64, 128);
 
-    //this.renderable.setCurrentAnimation("damaged");
+    /*var animationSheet = new me.AnimationSheet(0, 0, {
+      image: me.loader.getImage('deathExplosion'),
+      spritewidth: 64,
+      spriteheight: 64
+    });*/
 
-    //This line was removed. I unremoved it. I think something bad will happen.
+
+
+    //this.renderable.addAnimation("dead", [0], 400);
+
+
+    //this.renderable.setCurrentAnimation("dead");
+
+    /*//This line was removed. I unremoved it. I think something bad will happen.
     me.game.world.removeChild(this);
 
     game.updateRound();
 
-    console.log("OFFICIALY DEAD...");
+    console.log("OFFICIALY DEAD...");*/
+
+    var _this = this;
+
+    this.renderable.setCurrentAnimation("dead", function () {
+      //This line was removed. I unremoved it. I think something bad will happen.
+      me.game.world.removeChild(_this);
+
+      game.updateRound();
+
+      console.log("OFFICIALY DEAD...");
+    });
 
   }
 
