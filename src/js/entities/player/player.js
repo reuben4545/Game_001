@@ -107,36 +107,31 @@ game.PlayerEntity = me.ObjectEntity.extend({
 
     fire: function() {
 
-        //console.log("FIRE!");
+        if(game.canFire){
 
-        //###########
-        criminals = me.game.world.getChildByName("Criminal");
+            game.canFire = false;
 
-        console.log("Criminal Length Is: " + criminals.length);
+            setTimeout(function(){game.canFire = true;}, 20); //DEBUG hit cooldown
 
+            criminals = me.game.world.getChildByName("Criminal");
 
-        for(var i = 0; i < criminals.length; i++){
-
-            // Use pythag to check if the enemy is closer than 96 units
-            if(Math.sqrt(Math.abs(Math.pow(this.pos.x - criminals[i].pos.x, 2)) + Math.abs(Math.pow(this.pos.y - criminals[i].pos.y, 2))) < 96){
-
-                //console.log("criminal " + i + " is nearby!!!!!");
-
-                // call hit function in criminal class
-
-                criminals[i].hit(1);
+            console.log("Criminal Length Is: " + criminals.length);
 
 
-                //criminals[i].vel.x = (this.pos.x - criminals[i].pos.x) * -1;
+            for(var i = 0; i < criminals.length; i++){
 
-                //criminals[i].vel.y = (this.pos.y - criminals[i].pos.y) * -1;
+                // Use pythag to check if the enemy is closer than 96 units
+                if(Math.sqrt(Math.abs(Math.pow(this.pos.x - criminals[i].pos.x, 2)) + Math.abs(Math.pow(this.pos.y - criminals[i].pos.y, 2))) < 96){
+
+                    // call hit function in criminal class
+
+                    criminals[i].hit(1);
+
+                }
 
             }
 
-        }
-        //##########
-
-
+        } 
 
 
     },
