@@ -31,6 +31,7 @@ game.CriminalSpawner = me.ObjectEntity.extend({
 
     if(typeof criminal === "undefined"){
       criminal = game.ASBO;
+      console.log("BING BING BING");
     }
 
 

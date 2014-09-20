@@ -95,8 +95,6 @@ game.Criminal = me.ObjectEntity.extend({
 
     }else{
       this.vel.x = 0;
-
-      console.log("Apparently we are the same x!");
     }
 
     if(player.pos.y > this.pos.y + this.speed){
