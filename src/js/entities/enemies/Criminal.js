@@ -84,23 +84,24 @@ game.Criminal = me.ObjectEntity.extend({
 
     }
 
-
-
   },
 
   follow: function(player){
 
-    if(player.pos.x > this.pos.x){
+    if(player.pos.x > this.pos.x + this.speed){
       this.vel.x = this.speed;
-    }else if(player.pos.x < this.pos.x){
+    }else if(player.pos.x < this.pos.x - this.speed){
       this.vel.x = -this.speed;
+
     }else{
       this.vel.x = 0;
+
+      console.log("Apparently we are the same x!");
     }
 
-    if(player.pos.y > this.pos.y){
+    if(player.pos.y > this.pos.y + this.speed){
       this.vel.y = this.speed;
-    }else if(player.pos.y < this.pos.y){
+    }else if(player.pos.y < this.pos.y - this.speed){
       this.vel.y = -this.speed;
     }else{
       this.vel.y = 0;
