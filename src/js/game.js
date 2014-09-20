@@ -81,46 +81,49 @@ var game = {
 	loaded : function ()
 	{
 		console.log("loaded was called");
-      // set the "Play/Ingame" Screen Object
-      me.state.set(me.state.PLAY, new game.PlayScreen());
-	     
-      // register our player entity in the object pool
-      me.pool.register("mainPlayer", game.PlayerEntity);
+    // set the "Play/Ingame" Screen Object
+    me.state.set(me.state.PLAY, new game.PlayScreen());
+     
+    // register our player entity in the object pool
+    me.pool.register("mainPlayer", game.PlayerEntity);
 
-      // register exit
-      me.pool.register("exit", game.Exit);
+    // register exit
+    me.pool.register("exit", game.Exit);
 
-      // register NPC
-      me.pool.register("NPC", game.NPC);
+    // register NPC
+    me.pool.register("NPC", game.NPC);
 
-      // register Criminal
-      me.pool.register("Criminal", game.Criminal);
+    // register Criminal
+    me.pool.register("Criminal", game.Criminal);
 
-      // register Criminal Spawner
-      me.pool.register("CriminalSpawner", game.CriminalSpawner);
+    // register Criminal Spawner
+    me.pool.register("CriminalSpawner", game.CriminalSpawner);
 
-      // register fire
-      me.pool.register("ParticleEffect", game.ParticleEffect);
-
-
-      // enable the keyboard
-      me.input.bindKey(me.input.KEY.UP, "up");
-      me.input.bindKey(me.input.KEY.LEFT, "left");
-      me.input.bindKey(me.input.KEY.RIGHT, "right");
-      me.input.bindKey(me.input.KEY.DOWN, "down");
-      me.input.bindKey(me.input.KEY.SHIFT, "shift");
-
-      me.input.bindKey(me.input.KEY.SPACE, "fire");
-      //me.input.bindPointer(me.input.KEY.SPACE);
+    // register fire
+    me.pool.register("ParticleEffect", game.ParticleEffect);
 
 
-	      
-	   // start the game 
-	   me.state.change(me.state.PLAY);
+    // enable the keyboard
+    me.input.bindKey(me.input.KEY.UP, "up");
+    me.input.bindKey(me.input.KEY.LEFT, "left");
+    me.input.bindKey(me.input.KEY.RIGHT, "right");
+    me.input.bindKey(me.input.KEY.DOWN, "down");
+    me.input.bindKey(me.input.KEY.SHIFT, "shift");
 
-     //console.log(me.pool.pull('mainPlayer'));
+    me.input.bindKey(me.input.KEY.SPACE, "fire");
+    //me.input.bindPointer(me.input.KEY.SPACE);
 
-	   console.log("loaded has finished");
+    // setup variables
+
+    game.canFire = true;
+
+
+   // start the game 
+   me.state.change(me.state.PLAY);
+
+   //console.log(me.pool.pull('mainPlayer'));
+
+   console.log("loaded has finished");
 	},
 
   updateRound: function(){
