@@ -35,8 +35,9 @@ game.Criminal = me.ObjectEntity.extend({
 
     this.renderable.setCurrentAnimation("idle");
 
-
+    
   },
+
 
   update: function(dt) {
 
@@ -90,9 +91,10 @@ game.Criminal = me.ObjectEntity.extend({
 
     if(player.pos.x > this.pos.x + this.speed){
       this.vel.x = this.speed;
+      this.flipX(false);
     }else if(player.pos.x < this.pos.x - this.speed){
       this.vel.x = -this.speed;
-
+      this.flipX(true);
     }else{
       this.vel.x = 0;
     }
