@@ -34,8 +34,11 @@ game.CriminalSpawner = me.ObjectEntity.extend({
       console.log("BING BING BING");
     }
 
+    console.log(crime);
 
-    console.log(criminal);
+    if(crime == "criminal-damage-arson"){
+      console.log("LOOK! WE ARE THE SAME, WE MUST BE BROTHERS NOW!");
+    }
 
     me.game.world.addChild(new criminal( 
       this.pos.x, 
@@ -56,6 +59,8 @@ game.CriminalSpawner = me.ObjectEntity.extend({
         z: 100,
       } 
     ), 100);
+
+    console.log("---");
 
   }
 
