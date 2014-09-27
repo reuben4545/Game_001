@@ -72,13 +72,13 @@ game.HUD.ScoreItem = me.Renderable.extend( {
         staminaPercent = me.game.world.getChildByName("player")[0].stamina / me.game.world.getChildByName("player")[0].maxStamina;
 
         context.fillStyle = 'black';
-        context.fillRect((game.width / 6.70) - (500 / 2), (game.height / 1.09) - (30 / 2), 500, 100);
+        context.fillRect((game.width / 6.70) - (500 / 2), (game.height / 1.09) - (30 / 2), game.width / 1.74, game.width / 10);
         
         context.fillStyle = 'red';
-        context.fillRect((game.width / 7) - (500 / 2), (game.height / 1.02) - (30 / 2), 500 * healthPercent, 30);
+        context.fillRect((game.width / 7) - (500 / 2), (game.height / 1.02) - (30 / 2), game.width / 1.75 * healthPercent, game.height / 22);
         
         context.fillStyle = 'limegreen';
-        context.fillRect((game.width / 7) - (500 / 2), (game.height / 1.07) - (30 / 2), 500 * staminaPercent, 30);
+        context.fillRect((game.width / 7) - (500 / 2), (game.height / 1.07) - (30 / 2), game.width / 1.75 * staminaPercent, game.height / 22);
         
     }
 });
