@@ -72,7 +72,7 @@ game.Criminal = me.ObjectEntity.extend({
       if(this.canHit){    
         player.hit(1);
 
-        console.log("HITTING");
+        //console.log("HITTING");
 
         this.canHit = false;
 
@@ -148,7 +148,7 @@ game.Criminal = me.ObjectEntity.extend({
       context.fillStyle = 'limegreen';
       context.fillRect(this.pos.x, this.pos.y -30, 64 * healthPercent, 10);
 
-      console.log(this.reference + " ************************************");
+      //console.log(this.reference + " ************************************");
           
 
       

@@ -36,6 +36,8 @@ game.PlayerEntity = me.ObjectEntity.extend({
 
         this.collidable = true;
         
+        this.damage = 1;
+        
         this.health = 100;
         this.stamina = 100;
         
@@ -124,8 +126,12 @@ game.PlayerEntity = me.ObjectEntity.extend({
                 if(Math.sqrt(Math.abs(Math.pow(this.pos.x - criminals[i].pos.x, 2)) + Math.abs(Math.pow(this.pos.y - criminals[i].pos.y, 2))) < 96){
 
                     // call hit function in criminal class
-
-                    criminals[i].hit(1);
+                    
+                    var multiplier = Math.floor((Math.random() * (this.damage + 1)) + this.damage -1);
+                    
+                    
+                    criminals[i].hit(this.damage * multiplier);
+                    console.log("Hit enemy: " + this.damage * multiplier );
 
                 }
 
@@ -138,7 +144,7 @@ game.PlayerEntity = me.ObjectEntity.extend({
 
     hit: function(damage) {
 
-        console.log("Hit");
+        //console.log("Hit");
 
         this.health -= damage;
 
